@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Les12TelevisionsServicesApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(Les12TelevisionsServicesApplication.class, args);
     }
 
