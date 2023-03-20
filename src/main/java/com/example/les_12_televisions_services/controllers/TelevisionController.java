@@ -2,6 +2,7 @@ package com.example.les_12_televisions_services.controllers;
 
 
 
+import com.example.les_12_televisions_services.dto.IdInputDto;
 import com.example.les_12_televisions_services.dto.TelevisionInputDto;
 import com.example.les_12_televisions_services.dto.TelevisionOutputDto;
 import com.example.les_12_televisions_services.exceptions.RecordNotFoundException;
@@ -102,15 +103,39 @@ public class TelevisionController {
 
 
     //////////////////////////////////////////////////////////////////////////////////
-    @PutMapping("/{id}")
+    @PutMapping("/{id}r")
 
     public ResponseEntity<TelevisionOutputDto> updateTelevision(@PathVariable Long id,
                                                                 @RequestBody TelevisionInputDto newTelevision) {
 
 
-        TelevisionOutputDto tdto = televisionService.updateTelevision(id,  newTelevision);
+        TelevisionOutputDto tdto = televisionService.updateTelevision(id, newTelevision);
 
         return ResponseEntity.ok().body(tdto);
+
+
+    }
+
+        @PutMapping("/{id/remotecontroller}")
+
+        public ResponseEntity<TelevisionOutputDto> updateTelevision(@PathVariable Long id,
+                @RequestBody IdInputDto idInputDto) {
+
+
+            TelevisionOutputDto tdto = televisionService.updateTelevision(id, idInputDto);
+
+            return ResponseEntity.ok().body(tdto);
+
+
+
+        }}
+
+
+
+
+
+
+
 
 
 
@@ -124,7 +149,7 @@ public class TelevisionController {
         //    return ResponseEntity.noContent().build();
         //    } else {
         ///       throw new RecordNotFoundException("no found", HttpStatus.NOT_FOUND);
-    }}
+
 
 
 

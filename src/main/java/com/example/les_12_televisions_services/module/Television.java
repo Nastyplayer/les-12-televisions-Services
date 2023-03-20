@@ -3,189 +3,229 @@ package com.example.les_12_televisions_services.module;
 
 
 
-//import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GeneratedValue;
 
-        import jakarta.persistence.Entity;
-        import jakarta.persistence.GeneratedValue;
-        import jakarta.persistence.Id;
-        import jakarta.persistence.Table;
+        import jakarta.persistence.*;
+
+import java.util.List;
 
 
-        @Entity
-        @Table(name = "televisions")
+@Entity
+      //  @Table(name = "televisions")
         public class Television {
-
-
         @Id
         @GeneratedValue
 
-        public Long id;
-        public String type;
-        public String brand;
+        private Long id;
+        private String type;
+        private String brand;
 
-        public String name;
-        public double price;
-        public double availableSize;
-        public double refreshRate;
-        public  String screenType;
-        public String screenQuality;
-        public boolean smartTv;
-        public boolean wifi;
-        public boolean voiceControl;
-        public boolean hdr;
-        public boolean bluetooth;
-        public boolean ambiLight;
+        private String name;
+        private Double price;
+        private Double availableSize;
+        private Double refreshRate;
+        private String screenType;
+        private String screenQuality;
+        private Boolean smartTv;
+        private Boolean wifi;
+        private Boolean voiceControl;
+        private Boolean hdr;
+        private Boolean bluetooth;
+        private Boolean ambiLight;
 
-        public int originalStock;
+        private Integer originalStock;
 
-        public int sold;
+        private Integer sold;
 
+        @OneToOne
+        private RemoteController remoteController;
+
+@ManyToMany
+@JoinTable(name = "between_table",
+joinColumns = @JoinColumn(name = "tv_id"),
+inverseJoinColumns = @JoinColumn(name = "wb_id"))
+private List<WallBracket> wallBrackets;
+
+
+
+@OneToMany(mappedBy = "television")
+private List<TelevisionsWallBrackets>televisionsWallBrackets;
+
+
+@OneToMany(mappedBy = "television")
+private List<TelevisionsCiModules>televisionsCiModules;
+
+        public List<TelevisionsCiModules> getTelevisionsCiModules() {
+                return televisionsCiModules;
+        }
+
+        public void setTelevisionsCiModules(List<TelevisionsCiModules> televisionsCiModules) {
+                this.televisionsCiModules = televisionsCiModules;
+        }
 
         public static void set(long id, String television) {
         }
 
-
         public Long getId() {
-        return id;
+                return id;
         }
 
         public void setId(Long id) {
-        this.id = id;
+                this.id = id;
         }
 
         public String getType() {
-        return type;
+                return type;
         }
 
         public void setType(String type) {
-        this.type = type;
+                this.type = type;
         }
 
         public String getBrand() {
-        return brand;
+                return brand;
         }
 
         public void setBrand(String brand) {
-        this.brand = brand;
+                this.brand = brand;
         }
 
         public String getName() {
-        return name;
+                return name;
         }
 
         public void setName(String name) {
-        this.name = name;
+                this.name = name;
         }
 
-        public double getPrice() {
-        return price;
+        public Double getPrice() {
+                return price;
         }
 
-        public void setPrice(double price) {
-        this.price = price;
+        public void setPrice(Double price) {
+                this.price = price;
         }
 
-        public double getAvailableSize() {
-        return availableSize;
+        public Double getAvailableSize() {
+                return availableSize;
         }
 
-        public void setAvailableSize(double availableSize) {
-        this.availableSize = availableSize;
+        public void setAvailableSize(Double availableSize) {
+                this.availableSize = availableSize;
         }
 
-        public double getRefreshRate() {
-        return refreshRate;
+        public Double getRefreshRate() {
+                return refreshRate;
         }
 
-        public void setRefreshRate(double refreshRate) {
-        this.refreshRate = refreshRate;
+        public void setRefreshRate(Double refreshRate) {
+                this.refreshRate = refreshRate;
         }
 
         public String getScreenType() {
-        return screenType;
+                return screenType;
         }
 
         public void setScreenType(String screenType) {
-        this.screenType = screenType;
+                this.screenType = screenType;
         }
 
         public String getScreenQuality() {
-        return screenQuality;
+                return screenQuality;
         }
 
         public void setScreenQuality(String screenQuality) {
-        this.screenQuality = screenQuality;
+                this.screenQuality = screenQuality;
         }
 
-        public boolean isSmartTv() {
-        return smartTv;
+        public Boolean getSmartTv() {
+                return smartTv;
         }
 
-        public void setSmartTv(boolean smartTv) {
-        this.smartTv = smartTv;
+        public void setSmartTv(Boolean smartTv) {
+                this.smartTv = smartTv;
         }
 
-        public boolean isWifi() {
-        return wifi;
+        public Boolean getWifi() {
+                return wifi;
         }
 
-        public void setWifi(boolean wifi) {
-        this.wifi = wifi;
+        public void setWifi(Boolean wifi) {
+                this.wifi = wifi;
         }
 
-        public boolean isVoiceControl() {
-        return voiceControl;
+        public Boolean getVoiceControl() {
+                return voiceControl;
         }
 
-        public void setVoiceControl(boolean voiceControl) {
-        this.voiceControl = voiceControl;
+        public void setVoiceControl(Boolean voiceControl) {
+                this.voiceControl = voiceControl;
         }
 
-        public boolean isHdr() {
-        return hdr;
+        public Boolean getHdr() {
+                return hdr;
         }
 
-        public void setHdr(boolean hdr) {
-        this.hdr = hdr;
+        public void setHdr(Boolean hdr) {
+                this.hdr = hdr;
         }
 
-        public boolean isBluetooth() {
-        return bluetooth;
+        public Boolean getBluetooth() {
+                return bluetooth;
         }
 
-        public void setBluetooth(boolean bluetooth) {
-        this.bluetooth = bluetooth;
+        public void setBluetooth(Boolean bluetooth) {
+                this.bluetooth = bluetooth;
         }
 
-        public boolean isAmbiLight() {
-        return ambiLight;
+        public Boolean getAmbiLight() {
+                return ambiLight;
         }
 
-        public void setAmbiLight(boolean ambiLight) {
-        this.ambiLight = ambiLight;
+        public void setAmbiLight(Boolean ambiLight) {
+                this.ambiLight = ambiLight;
         }
 
-        public int getOriginalStock() {
-        return originalStock;
+        public Integer getOriginalStock() {
+                return originalStock;
         }
 
-        public void setOriginalStock(int originalStock) {
-        this.originalStock = originalStock;
+        public void setOriginalStock(Integer originalStock) {
+                this.originalStock = originalStock;
         }
 
-        public int getSold() {
-        return sold;
+        public Integer getSold() {
+                return sold;
         }
 
-        public void setSold(int sold) {
-        this.sold = sold;
+        public void setSold(Integer sold) {
+                this.sold = sold;
         }
 
-
-
-
-
+        public RemoteController getRemoteController() {
+                return remoteController;
         }
+
+        public void setRemoteController(RemoteController remoteController) {
+                this.remoteController = remoteController;
+        }
+
+        public List<WallBracket> getWallBrackets() {
+                return wallBrackets;
+        }
+
+        public void setWallBrackets(List<WallBracket> wallBrackets) {
+                this.wallBrackets = wallBrackets;
+        }
+
+        public List<TelevisionsWallBrackets> getTelevisionsWallBrackets() {
+                return televisionsWallBrackets;
+        }
+
+        public void setTelevisionsWallBrackets(List<TelevisionsWallBrackets> televisionsWallBrackets) {
+                this.televisionsWallBrackets = televisionsWallBrackets;
+        }
+}
 
 
 

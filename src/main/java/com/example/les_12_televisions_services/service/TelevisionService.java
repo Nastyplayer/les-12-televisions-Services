@@ -2,10 +2,12 @@ package com.example.les_12_televisions_services.service;
 
 
 
+import com.example.les_12_televisions_services.dto.IdInputDto;
 import com.example.les_12_televisions_services.dto.TelevisionInputDto;
 import com.example.les_12_televisions_services.dto.TelevisionOutputDto;
 import com.example.les_12_televisions_services.exceptions.RecordNotFoundException;
 import com.example.les_12_televisions_services.module.Television;
+import com.example.les_12_televisions_services.repository.RemoteControllerRepository;
 import com.example.les_12_televisions_services.repository.TelevisionRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -18,12 +20,15 @@ import java.util.Optional;
 public class TelevisionService {
 
     private static TelevisionRepository repos = null;
+    //  private final TelevisionRepository repos;
+    private final RemoteControllerRepository remoteControllerRepository;
 
     // constructor injection (instead of @Autowired)
-    public TelevisionService(TelevisionRepository repos) {
-
+    public TelevisionService(TelevisionRepository repos, RemoteControllerRepository remoteControllerRepository) {
         this.repos = repos;
+        this.remoteControllerRepository = remoteControllerRepository;
     }
+
 
     ////////////////////////////////////////////////////////////////////
     public List<TelevisionOutputDto> getAllTelevisions() {
@@ -80,8 +85,6 @@ public class TelevisionService {
     //TelevisionOutputDto toTelevision = null;
 
     // repos.save(t);
-
-
 
 
 ///////////////////////////////////////////////////////////////////
@@ -157,7 +160,7 @@ public class TelevisionService {
     }
 
 
-    public static TelevisionOutputDto fromTelevision(Television t) {
+    public TelevisionOutputDto fromTelevision(Television t) {
         TelevisionOutputDto tdto = new TelevisionOutputDto();
 
         tdto.id = t.getId();
@@ -169,17 +172,38 @@ public class TelevisionService {
         tdto.refreshRate = t.getRefreshRate();
         tdto.screenType = t.getScreenType();
         tdto.screenQuality = t.getScreenQuality();
-        tdto.smartTv = t.isSmartTv();
-        tdto.voiceControl = t.isVoiceControl();
-        tdto.hdr = t.isHdr();
-        tdto.bluetooth = t.isBluetooth();
-        tdto.ambiLight = t.isAmbiLight();
+        tdto.smartTv = t.getSmartTv();
+        tdto.wifi = t.getWifi();
+        tdto.hdr = t.getHdr();
+        tdto.bluetooth = t.getBluetooth();
+        tdto.ambiLight = t.getAmbiLight();
         tdto.originalStock = t.getOriginalStock();
         tdto.sold = t.getSold();
         return tdto;
+
     }
 
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
