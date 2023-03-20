@@ -6,28 +6,33 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 public class TelevisionOutputDto {
+
+
+
     @Id
     @GeneratedValue
 
     public Long id;
-    public String type;
-    public String brand;
+    public  String type;
+    public  String brand;
 
-    public String name;
-    public double price;
-    public double availableSize;
-    public double refreshRate;
+    public  String name;
+    public Double price;
+    public  Double availableSize;
+    public  Double refreshRate;
     public  String screenType;
-    public String screenQuality;
-    public boolean smartTv;
-    public boolean wifi;
-    public boolean voiceControl;
-    public boolean hdr;
-    public boolean bluetooth;
-    public boolean ambiLight;
+    public  String screenQuality;
+    public  Boolean smartTv;
+    public  Boolean wifi;
+    public  Boolean voiceControl;
+    public  Boolean hdr;
+    public  Boolean bluetooth;
+    public  Boolean ambiLight;
 
-    public int originalStock;
+    public  Integer originalStock;
 
-    public int sold;
+    public  Integer sold;
+
+
 }
 
