@@ -1,32 +1,28 @@
 package com.example.les_12_televisions_services.module;
 
-
-
-
-
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.*;
 
 
 @Entity
 @Table( name = "RemoteController")
+
 public class RemoteController {
 
     @Id
     @GeneratedValue
 
-    public Long id;
-    public String compatibleWith;
-    private String batteryType;
-    private String name;
-    private String brand;
-    private Double price;
+    private Long id;
+    private String compatibleWith;
+    private  String batteryType;
+    private  String name;
+    private  String brand;
+    private  Double price;
     private Integer originalStock;
 
     @OneToOne( mappedBy= "remoteController")
-    private Television television;
 
-
-
+    private static Television television;
 
 
     public Long getId() {
@@ -85,15 +81,11 @@ public class RemoteController {
         this.originalStock = originalStock;
     }
 
-    public Television getTelevision() {
+    public static Television getTelevision() {
         return television;
     }
 
-    public void setTelevision(Television television) {
-        this.television = television;
+    public static void setTelevision(Television television) {
+        RemoteController.television = television;
     }
-
-
-
-
 }

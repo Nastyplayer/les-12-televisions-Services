@@ -1,11 +1,8 @@
 package com.example.les_12_televisions_services.module;
 
-
-
-
 import jakarta.persistence.GeneratedValue;
 
-        import jakarta.persistence.*;
+import jakarta.persistence.*;
 
 import java.util.List;
 
@@ -37,7 +34,8 @@ import java.util.List;
 
         private Integer sold;
 
-        @OneToOne
+@OneToOne
+
         private RemoteController remoteController;
 
 @ManyToMany

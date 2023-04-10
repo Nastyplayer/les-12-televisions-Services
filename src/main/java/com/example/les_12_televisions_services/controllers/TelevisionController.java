@@ -1,7 +1,5 @@
 package com.example.les_12_televisions_services.controllers;
 
-
-
 import com.example.les_12_televisions_services.dto.IdInputDto;
 import com.example.les_12_televisions_services.dto.TelevisionInputDto;
 import com.example.les_12_televisions_services.dto.TelevisionOutputDto;
@@ -106,7 +104,7 @@ public class TelevisionController {
     @PutMapping("/{id}r")
 
     public ResponseEntity<TelevisionOutputDto> updateTelevision(@PathVariable Long id,
-                                                                @RequestBody TelevisionInputDto newTelevision) {
+      @RequestBody TelevisionInputDto newTelevision) {
 
 
         TelevisionOutputDto tdto = televisionService.updateTelevision(id, newTelevision);
@@ -116,27 +114,19 @@ public class TelevisionController {
 
     }
 
-        @PutMapping("/{id/remotecontroller}")
+        @PutMapping("/{id}/remotecontroller")
 
         public ResponseEntity<TelevisionOutputDto> updateTelevision(@PathVariable Long id,
                 @RequestBody IdInputDto idInputDto) {
 
 
-            TelevisionOutputDto tdto = televisionService.updateTelevision(id, idInputDto);
+           TelevisionOutputDto tdto = televisionService.updateTelevision(id, idInputDto);
 
             return ResponseEntity.ok().body(tdto);
 
 
 
-        }}
-
-
-
-
-
-
-
-
+       }}
 
 
 
