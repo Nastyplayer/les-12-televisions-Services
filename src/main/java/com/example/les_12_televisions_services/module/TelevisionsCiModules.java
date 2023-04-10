@@ -10,11 +10,11 @@ import jakarta.persistence.*;
     @GeneratedValue
     private Long id;
     @ManyToOne
-    @Column(nullable = false)
+    @JoinColumn(nullable = false)
     private CiModule ciModule;
 
     @ManyToOne
-    @Column(nullable = false)
+    @JoinColumn(nullable = false)
     private Television television;
 
 

@@ -9,18 +9,16 @@ public class RemoteControllerOutputDto {
     @Id
     @GeneratedValue
 
-    public Long id;
-    public String compatibleWith;
+    private Long id;
+    private String compatibleWith;
     private String batteryType;
     private String name;
     private String brand;
     private Double price;
     private Integer originalStock;
 
-    @OneToOne( mappedBy= "remoteController")
+    @OneToOne(mappedBy = "remoteController")
     private Television television;
-
-
 
 }
 

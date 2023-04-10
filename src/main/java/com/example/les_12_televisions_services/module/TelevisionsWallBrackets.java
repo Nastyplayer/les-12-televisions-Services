@@ -10,11 +10,11 @@ public class TelevisionsWallBrackets {
    @GeneratedValue
    private Long id;
    @ManyToOne
-   @Column(nullable = false)
+   @JoinColumn(nullable = false)
    private WallBracket wallBracket;
 
    @ManyToOne
-   @Column(nullable = false)
+   @JoinColumn(nullable = false)
     private Television television;
 
 

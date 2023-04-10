@@ -1,4 +1,4 @@
-package com.example.les_12_televisions_services.controllers;
+package com.example.les_12_televisions_services.exceptions;
 
 import com.example.les_12_televisions_services.exceptions.RecordNotFoundException;
 import org.springframework.http.HttpStatus;

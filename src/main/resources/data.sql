@@ -4,3 +4,9 @@ insert into television (id, type, brand, name, price, available_size, refresh_ra
 insert into television (id, type, brand, name, price, available_size, refresh_rate, screen_type, screen_quality, smart_tv, wifi, voice_control, hdr, bluetooth, ambi_light, original_stock, sold) values (4, '2/M', 'Samsung', 'LED Smart Tv', 739, 50, 60, 'LED', ' HD',  true, true, false, true, false, false, 5549, 486);
 insert into television (id, type, brand, name, price, available_size, refresh_rate, screen_type, screen_quality, smart_tv, wifi, voice_control, hdr, bluetooth, ambi_light, original_stock, sold) values (5, '2/S', 'Samsung', 'LED Smart Tv', 639, 58, 60, 'LED', 'HD',  true, true, false, true, false, false,945, 5741);
 insert into television (id, type, brand, name, price, available_size, refresh_rate, screen_type, screen_quality, smart_tv, wifi, voice_control, hdr, bluetooth, ambi_light, original_stock, sold) values (6, 'AAA', 'LG', 'AAA', 989, 55, 100, 'AAA', ' HD',  true, true, true, true, true, false, 5600, 5500);
+
+INSERT INTO users (username, password, enabled, apikey, email)
+VALUES ('henk', 'password', true, '7847493' , 'test@testy.tst');
+
+INSERT INTO authorities (username, authority)
+VALUES ('henk', 'ROLE_ADMIN');
